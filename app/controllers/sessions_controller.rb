@@ -6,10 +6,12 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @user = login(params[:email], params[:password])
         
     if @user = login(params[:email], params[:password])
-      redirect_to root_path
+      redirect_back_or_to(root_path, notice: 'Login successful')
+      flash[:notice] = "ログインしました"
     else
       flash.now[:alert] = 'Login 失敗'
       render action: 'new'
@@ -21,9 +23,9 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  private
+  # private
   
-  def user_session_params
-    params.permit(:email, :password)
-  end
+  # def user_session_params
+  #   params.permit(:email, :password)
+  # end
 end

@@ -1,5 +1,4 @@
 
-
 .row
   .col-md-8.col-12 
     .card.mb-5.post
@@ -31,3 +30,7 @@
           hr
         .card-footer
           = link_to "すべて見る", "/"
+- if current_user
+  h1 hogehoge 
+- else
+  h1 fugafuga

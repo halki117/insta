@@ -1,7 +1,12 @@
-h1 Sessions#new
-p Find me in app/views/sessions/new.html.slim
-
-= form_tag(login_path, method: :post) do
-  = text_field_tag "email"
-  = password_field_tag "password"
-  = submit_tag "ログイン"
+.row 
+  .col-6
+    .card.mb-3
+      .card-body 
+        = form_with url: login_path,local: true do |f|
+          .form-group
+            =f.label :email, class: "bmd-label_floating"
+            = f.text_field "email", class: "form-control"
+          .form-group
+            = f.label :password, class: "bmd-label_floating"
+            = f.password_field "password", class: "form-control"
+          = f.submit "ログイン", class: "btn btn-raised btn-primary"

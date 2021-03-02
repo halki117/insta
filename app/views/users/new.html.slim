@@ -4,7 +4,7 @@
       .login-resister-form-inner
         .card.mb-3
           .card-body
-            = form_with model: @user, local: true do |f|
+            = form_with model: @user,method: :post, local: true do |f|
               .form-group
                 = f.label :name, class: "bmd-label_floating"
                 = f.text_field :name, class: "form-control"
