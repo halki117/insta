@@ -1,12 +1,18 @@
 .row 
-  .col-6
-    .card.mb-3
-      .card-body 
-        = form_with url: login_path,local: true do |f|
-          .form-group
-            =f.label :email, class: "bmd-label_floating"
-            = f.text_field "email", class: "form-control"
-          .form-group
-            = f.label :password, class: "bmd-label_floating"
-            = f.password_field "password", class: "form-control"
-          = f.submit "ログイン", class: "btn btn-raised btn-primary"
+  .col-6.post
+    .login-resister-form 
+      .login-resister-form-inner
+        .card.mb-3
+          .card-body 
+            = form_with url: login_path,local: true do |f|
+              .form-group
+                = f.label User.human_attribute_name(:name), class: "bmd-label_floating"
+                = f.text_field "email", class: "form-control"
+              .form-group
+                = f.label User.human_attribute_name(:email), class: "bmd-label_floating"
+                = f.password_field "password", class: "form-control"
+              = f.submit "ログイン", class: "btn btn-raised btn-primary"
+        .card 
+          .card-body
+            | アカウントをお持ちではないですか?
+            = link_to "登録する", new_user_path
