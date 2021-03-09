@@ -10,9 +10,12 @@
       .image 
         = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbugVqJjEUb1zo4LHAIeOwlj4y1GX7WJQAHw&usqp=CAU", size: "400x400"
       .card-body
-        .card-text
-          | contents
-          = icon 'far', 'edit'
+        .card-text.card-bottom
+          .card-content
+            | contents
+          .card-icon
+            = icon 'far', 'edit'
+  
   .col-md-4.col-12
     .user-box 
       .card 
