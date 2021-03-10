@@ -27,5 +27,12 @@ html
                 = link_to "ログイン", login_path
 
     main
-      .container
-       = yield
+      - if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+      -if flash.now[:alert]
+        .alert.alert-danger 
+          = flash.now[:alert]
+
+      .container.content
+        = yield

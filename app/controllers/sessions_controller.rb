@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_back_or_to(root_path, notice: 'Login successful')
       flash[:notice] = "ログインしました"
     else
-      flash.now[:alert] = 'Login 失敗'
+      flash.now[:alert] = 'ログインに失敗しました'
       render action: 'new'
     end
   end
