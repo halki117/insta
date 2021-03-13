@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
+//= require bootstrap-material-design/dist/js/bootstrap-material-design.js
 //= require_tree .
 
 //  require turbolinks を外している!!!
