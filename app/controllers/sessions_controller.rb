@@ -5,18 +5,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if login(params[:email], params[:password])
-      redirect_back_or_to(root_path, notice: 'Login successful')
-      flash[:notice] = "ログインしました"
+    @user = login(params[:email], params[:password])  # newのページに遷移しすることも考え,createアクション名でもインスタンス変数を設定している。
+    
+    if @user
+      redirect_back_or_to root_path, success: 'ログインしました' # redirect_back_or_to 保存されたURLがある場合そのURLに、ない場合は指定されたURLにリダイレクト
     else
-      flash.now[:alert] = 'ログインに失敗しました'
-      render action: 'new'
+      flash.now[:danger] = 'ログインに失敗しました'
+      render :new
     end
   end
 
   def destroy
     logout
-    redirect_to root_path
+    redirect_to root_path, success: 'ログアウトしました'
   end
 
 end
