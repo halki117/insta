@@ -1,0 +1,3 @@
+ - flash.each do |message_type, message|  # フラッシュメッセージが key と value に分けられる、例えばログイン成功の場合(key->success, value->ログインに失敗しました)
+    div class=("alert alert-#{message_type}") 
+      = message

@@ -1,0 +1,36 @@
+
+.row
+  .col-md-8.col-12
+    .card.mb-5.post
+      .card-header
+        .d-flex.aline-item-center
+          .user_img
+            = image_tag avatar_url(@user) , size: "40x40"
+            | user_name
+      .image 
+        = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbugVqJjEUb1zo4LHAIeOwlj4y1GX7WJQAHw&usqp=CAU", size: "400x400"
+      .card-body
+        .card-text.card-bottom
+          .card-content
+            | contents
+          .card-icon
+            = icon 'far', 'edit'
+  
+  .col-md-4.col-12
+    .user-box 
+      .card 
+        .card-header
+            | ユーザー
+        .card-body
+          .user.mb-3.d-flex.justify-content-between
+            .user_img
+              = image_tag "https://image.shutterstock.com/image-vector/sample-stamp-square-grunge-sign-260nw-1474408826.jpg", size: "40x40"
+              | ユ-ザー１
+          hr
+          .user.mb-3.d-flex.justify-content-between
+            .user_img
+              = image_tag "https://image.shutterstock.com/image-vector/sample-stamp-square-grunge-sign-260nw-1474408826.jpg", size: "40x40"
+              | ユーザー2
+          hr
+        .card-footer
+          = link_to "すべて見る", "/"

@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | Insta
+    meta name="vewport" content="width=device-width" initial-scale="1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body
+    - if logged_in? # logged_in? sorceryのメルパーメソッド、ログインしているかを判断している
+      = render 'shared/header'
+    - else
+      = render 'shared/before_login_header'
+    = render 'shared/flash'
+    main
+      .container.content
+        = yield
