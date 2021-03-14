@@ -9,7 +9,10 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = render 'shared/header'
+    - if logged_in? # logged_in? sorceryのメルパーメソッド、ログインしているかを判断している
+      = render 'shared/header'
+    - else
+      = render 'shared/before_login_header'
     = render 'shared/flash'
     main
       .container.content

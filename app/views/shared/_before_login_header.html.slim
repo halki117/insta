@@ -8,23 +8,10 @@ nav.navbar.navbar-expand-lg.nabvar-light.bg-white
         = f.text_field :search, placeholder: "本文", class: "form-control mr-sm-2", id: "q_body"
         = f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0"
 
-    ul.navbar-nav.mt-2.mt-lg-0
+    ul.navbar-nav.mt-2.mt-lg-0 
       li.nav-item
         .nav-link
-          = link_to '#' do
-            = icon 'far', 'image fa-lg'
+          = link_to "ポスト一覧", "/"
       li.nav-item
         .nav-link
-          = link_to '#' do
-            = icon 'far', 'comments fa-lg'
-      li.nav-item
-        .nav-link
-          = link_to '#' do
-            = icon 'fa', 'heart fa-lg'
-      li.nav-item
-        .nav-link
-          = link_to '#' do
-            = icon 'far', 'user fa-lg'
-      li.nav-item
-        .nav-link
-          = link_to('ログアウト', logout_path, method: :delete)
+          = link_to "ログイン", login_path
