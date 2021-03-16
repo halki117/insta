@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |n|
+  name = Faker::Name.name
+  email = Faker::Internet.email
+  password = "password"
+  user = User.create!(name: name,
+               email: email,
+               password: password,
+               password_confirmation: password,
+              )
+  
+  post = Post.create!(user_id: user.id)
+
+  3.times do |n|
+  image = Faker::Avatar.image
+  Photo.create!(image: image,
+                post_id: post.id
+               )
+  end
+  
+end
+

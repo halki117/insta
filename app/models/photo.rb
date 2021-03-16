@@ -17,4 +17,8 @@
 #  fk_rails_...  (post_id => posts.id)
 #
 class Photo < ApplicationRecord
+
+  belongs_to :post
+
+  validates :image, presence: true
 end
