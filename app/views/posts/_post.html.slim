@@ -6,12 +6,12 @@
         = post.user.name
       - if current_user&.own?(post)
         .ml-auto.icons
-          = link_to '#', class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
+          = link_to post_path(post), method: :delete, class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
             = icon 'far', 'trash-alt', class: 'fa-lg'
-          = link_to '#' do
+          = link_to edit_post_path(post) do
             = icon 'far', 'edit', class: 'fa-lg'
 
-  = link_to '#' do
+  = link_to post_path(post) do
     .swiper-container
       .swiper-wrapper
         - post.images.each do |image|
