@@ -1,0 +1,22 @@
+.card.mb-5.post
+  .card-header
+    .d-flex.aline-item-center
+      .user_img
+        = image_tag avatar_url(post.user) , size: "40x40", class: 'rounded-circle mr-1'
+        = post.user.name
+        - if current_user&.own?(post)
+          .ml-auto
+            = link_to '#', class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
+              = icon 'far', 'trash-alt', class: 'fa-lg'
+            = link_to '#' do
+              = icon 'far', 'edit', class: 'fa-lg'
+
+  = link_to '#' do      
+    .image 
+      - post.images.each do |image|
+        = image_tag image.url , size: "400x400"
+  
+  .card-body
+    .card-text.card-bottom
+      .card-content
+        = post.description
