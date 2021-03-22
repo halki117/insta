@@ -4,12 +4,12 @@
       .user_img
         = image_tag avatar_url(post.user) , size: "40x40", class: 'rounded-circle mr-1'
         = post.user.name
-        - if current_user&.own?(post)
-          .ml-auto
-            = link_to '#', class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
-              = icon 'far', 'trash-alt', class: 'fa-lg'
-            = link_to '#' do
-              = icon 'far', 'edit', class: 'fa-lg'
+      - if current_user&.own?(post)
+        .ml-auto
+          = link_to '#', class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
+            = icon 'far', 'trash-alt', class: 'fa-lg'
+          = link_to '#' do
+            = icon 'far', 'edit', class: 'fa-lg'
 
   = link_to '#' do
     .swiper-container

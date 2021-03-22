@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, success: '投稿しました'
+      redirect_to root_path, success: '投稿しました'
     else
       flash.now[:danger] = '投稿に失敗しました'
       render :new
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to posts_path, success: '投稿を更新しました'
+      redirect_to root_path, success: '投稿を更新しました'
     else
       flash.now[:danger] = '投稿の更新に失敗しました'
       render :edit
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body, images: [])
+    params.require(:post).permit(:description, images: [])
   end
   
 end
