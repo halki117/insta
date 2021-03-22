@@ -11,10 +11,13 @@
             = link_to '#' do
               = icon 'far', 'edit', class: 'fa-lg'
 
-  = link_to '#' do      
-    .image 
-      - post.images.each do |image|
-        = image_tag image.url , size: "400x400"
+  = link_to '#' do
+    .swiper-container
+      .swiper-wrapper
+        - post.images.each do |image|
+          .swiper-slide
+            = image_tag image.url , size: "400x400"
+      .swiper-pagination
   
   .card-body
     .card-text.card-bottom
