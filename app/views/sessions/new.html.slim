@@ -6,10 +6,10 @@
           .card-body 
             = form_with url: login_path,local: true do |f|
               .form-group
-                = f.label User.human_attribute_name(:email), class: "bmd-label_floating"
+                = f.label :email, 'メールアドレス', class: "bmd-label_floating"
                 = f.text_field "email", class: "form-control"
               .form-group
-                = f.label User.human_attribute_name(:password), class: "bmd-label_floating"
+                = f.label :password,'パスワード', class: "bmd-label_floating"
                 = f.password_field "password", class: "form-control"
               = f.submit "ログイン", class: "btn btn-raised btn-primary"
         .card 
