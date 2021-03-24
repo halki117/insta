@@ -1,0 +1,33 @@
+.post-detail.card
+  .image-box
+    .swiper-container
+      .swiper-wrapper
+        - @post.images.each do |image|
+          .swiper-slide
+            = image_tag image.url, size: "400x400"
+      .swiper-pagination
+  .image-info-box
+    .profile-box.p-3
+      .d-flex.align-items-center
+        = image_tag avatar_url(@post.user), size: '40x40', class: 'rounded-circle mr-1'
+        = @post.user.name
+        - if current_user&.own?(@post)
+          .ml-auto
+            = link_to post_path(@post), class: 'mr-3', method: :delete, data: {confirm: '本当に削除しますか？'} do
+              = icon 'far', 'trash-alt', class: 'fa-lg'
+            = link_to edit_post_path(@post) do
+              = icon 'far', 'edit', class: 'fa-lg'
+    hr.m-0.mx-3
+    .post-body.p-3
+      .row.no-gutters
+        .col-2
+          = image_tag avatar_url(@post.user), size: '40x40', class: 'rounded-circle'
+        .col-10
+          = simple_format(@post.description)
+    hr.m-0.mx-3
+      .row.no-gutters.p-3
+        .col-2
+          = image_tag avatar_url(@post.user), size: '40x40', class: 'rounded-circle'
+        .col-10
+          | comments
+          
