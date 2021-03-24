@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
 
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page]).per(15)  #ページネーション適用。１ページ１５件まで表示する。
   end
 
   def new
