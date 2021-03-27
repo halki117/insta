@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
 
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page]).per(15)  #ページネーション適用。１ページ１５件まで表示する。
+    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+    # pageメソッド page(n)とすることでnページ目のレコードを取得(デフォルトでは1ページ25レコードとなる)
+    # 1ページ15件表示にしたいので、設定ファイル(config/initializers/kaminari_config.rb)内で設定
   end
 
   def new
