@@ -1,8 +1,8 @@
 
 .row
   .col-md-8.col-12
-     = render @posts
-  
+    = render @posts
+    = paginate @posts
   .col-md-4.col-12
     .user-box 
       .card 
@@ -21,3 +21,4 @@
           hr
         .card-footer
           = link_to "すべて見る", "/"
+
