@@ -1,0 +1,9 @@
+- if @comment.errors.present?
+  | alert("#{@comment.errors.full_messages.join('\n')}");
+- else
+  | $('.comments-box').prepend("#{j render('comments/comment', comment: @comment)}"); 
+  | $('.input-comment-body').val('');
+
+/ createアクションが実行されると、こちらのviewファイルが呼び出される
+/ 4行目: .comments-boxの配下に子要素として _comment.html.slim の中身を付け加える。「 j 」と書かれているのは「escape_javascript」のエイリアス
+/ js.slimの場合は 先頭に「 | 」 を持ってくる 

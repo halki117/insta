@@ -1,10 +1,4 @@
-- @comments.each do |comment|
-    .row.no-gutters.p-3
-        .col-2
-          = image_tag avatar_url(comment.user), size: '40x40', class: 'rounded-circle'
-        .comment.col-10
-          .comment_user_name
-            = comment.user.name
-          .comment_content
-            = comment.content
-    hr.m-0.mx-3
+.comments-box
+  = render comments
+/ 2行目 comments はローカル変数。views/posts/show内で = render 'comments/comments', comments: @comments としている
+/ また render comments とすることで。comments内のデータの数だけ _comment.html.slim のテンプレートを繰り返し生成する。
