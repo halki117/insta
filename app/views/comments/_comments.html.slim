@@ -1,0 +1,10 @@
+- @comments.each do |comment|
+    .row.no-gutters.p-3
+        .col-2
+          = image_tag avatar_url(comment.user), size: '40x40', class: 'rounded-circle'
+        .comment.col-10
+          .comment_user_name
+            = comment.user.name
+          .comment_content
+            = comment.content
+    hr.m-0.mx-3

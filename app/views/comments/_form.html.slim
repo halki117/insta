@@ -1,0 +1,5 @@
+= form_with model: [@post, @comment], local: true do |f|
+    .form-group
+      = f.text_field :content, class: 'form-control', placeholder: "コメント"
+      = f.hidden_field :post_id, value: @post.id
+    = f.submit '投稿', class: "btn btn-success"

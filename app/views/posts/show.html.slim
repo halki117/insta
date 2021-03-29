@@ -25,8 +25,7 @@
         .col-10
           = simple_format(@post.description)
     hr.m-0.mx-3
-      .row.no-gutters.p-3
-        .col-2
-          = image_tag avatar_url(@post.user), size: '40x40', class: 'rounded-circle'
-        .col-10
-          | comments
+      = render 'comments/comments', comments: @comments
+    
+    .post_comment.p-3
+      = render 'comments/form', post: @post, commnent: @comment
