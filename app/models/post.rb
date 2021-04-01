@@ -19,6 +19,8 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
+
   mount_uploaders :images, ImageUploader 
   serialize :images, JSON  #JSON形式で保存する。一つのカラムに複数のデータを格納するため
 

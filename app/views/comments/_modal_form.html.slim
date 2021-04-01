@@ -1,0 +1,11 @@
+.modal#comment-edit-modal
+  .modal-dialog 
+    .modal-content 
+      .modal-header 
+        h5.modal-title コメント編集
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true" x
+      .modal-body 
+        = render 'form', post: nil, comment: comment
+/ 9行目 shallowオプションによって comment#editのパスが /comments/:id/edit(post.idが不要) となるため 
+/      _form.html.slim のテンプレートを使う際に post: nil としている？
