@@ -33,4 +33,8 @@ class User < ApplicationRecord
   def own?(object)
     id == object.user_id
   end
+
+  def like?(post_id) 
+    likes.where(post_id: post_id).exsists? #ユーザーが投稿に対していいねしたか判断 
+  end
 end
