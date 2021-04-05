@@ -4,7 +4,6 @@
       .user_img
         = image_tag avatar_url(post.user) , size: "40x40", class: 'rounded-circle mr-1'
         = post.user.name
-        = link_to 'いいね', '#'
       - if current_user&.own?(post)
         .ml-auto.icons
           = link_to post_path(post), method: :delete, class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
