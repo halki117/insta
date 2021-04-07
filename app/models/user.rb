@@ -36,11 +36,11 @@ class User < ApplicationRecord
   end
   
   def like(post)
-    like_posts << post
+    like_posts << post #ユーザのいいねした投稿が追加される
   end
 
   def unlike(post)
-    like_posts.destroy(post)
+    like_posts.destroy(post) #destroy(post) 引数に削除したいpost.idを渡している
   end
 
   def like?(post) 
