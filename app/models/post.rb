@@ -20,6 +20,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy # いいねをしたユーザー(user_id), いいねされた投稿(post_id)の組み合わせを取得できる
+  has_many :like_users, through: :likes, source: :user  # likesテーブルを経由して,userモデルを参照している。
 
   mount_uploaders :images, ImageUploader 
   serialize :images, JSON  #JSON形式で保存する。一つのカラムに複数のデータを格納するため

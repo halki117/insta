@@ -10,6 +10,13 @@
             = icon 'far', 'trash-alt', class: 'fa-lg'
           = link_to edit_post_path(post) do
             = icon 'far', 'edit', class: 'fa-lg'
+      - if current_user && !current_user&.own?(post)
+        .ml-auto.my-auto
+          div id="like_area-#{post.id}"
+            - if current_user.like?(post)
+              = render 'unlike', post: post
+            - else
+              = render 'like', post: post
 
   = link_to post_path(post) do
     .swiper-container

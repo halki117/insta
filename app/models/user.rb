@@ -28,8 +28,22 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
 
   def own?(object)
     id == object.user_id
+  end
+  
+  def like(post)
+    like_posts << post #ユーザのいいねした投稿が追加される
+  end
+
+  def unlike(post)
+    like_posts.destroy(post) #destroy(post) 引数に削除したいpost.idを渡している
+  end
+
+  def like?(post) 
+    like_posts.include?(post) #ユーザーが投稿に対していいねしたか判断 
   end
 end
