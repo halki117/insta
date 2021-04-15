@@ -6,6 +6,8 @@ nav.navbar.navbar-expand-lg.nabvar-light.bg-white
     .form-inline.my-2.my-lg-0.mr-auto
       = form_with url: "/" do |f|
         = f.text_field :search, placeholder: "本文", class: "form-control mr-sm-2", id: "q_body"
+        = f.text_field :search, placeholder: "コメント", class: "form-control mr-sm-2", id: "q_body"
+        = f.text_field :search, placeholder: "ユーザー名", class: "form-control mr-sm-2", id: "q_body"
         = f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0"
 
     ul.navbar-nav.mt-2.mt-lg-0
