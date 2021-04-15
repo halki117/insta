@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :posts, shallow: true do 
     resources :comments
   end
-  resources :users, only: [:new, :create]
+  resources :users
   root "posts#index"
 
   get '/login' => "sessions#new"
@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   delete '/logout' => "sessions#destroy"
 
   resources :likes, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
 end

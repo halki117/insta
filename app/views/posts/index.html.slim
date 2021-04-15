@@ -1,7 +1,11 @@
 
 .row
   .col-md-8.col-12
-    = render @posts
+    - if @posts
+      = render @posts
+    - else
+      .text-center.font-weight-bold
+        | 投稿がありません
     = paginate @posts
   .col-md-4.col-12
     .user-box 
@@ -9,16 +13,7 @@
         .card-header
             | ユーザー
         .card-body
-          .user.mb-3.d-flex.justify-content-between
-            .user_img
-              = image_tag "https://image.shutterstock.com/image-vector/sample-stamp-square-grunge-sign-260nw-1474408826.jpg", size: "40x40"
-              | ユ-ザー１
-          hr
-          .user.mb-3.d-flex.justify-content-between
-            .user_img
-              = image_tag "https://image.shutterstock.com/image-vector/sample-stamp-square-grunge-sign-260nw-1474408826.jpg", size: "40x40"
-              | ユーザー2
-          hr
+          = render @users
         .card-footer
-          = link_to "すべて見る", "/"
+          = link_to "すべて見る", users_path
 
