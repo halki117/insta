@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   
+  root "posts#index"
+
   resources :posts, shallow: true do 
+    collection do
+      get :search
+    end
     resources :comments
   end
   resources :users
-  root "posts#index"
+  
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
@@ -12,6 +17,4 @@ Rails.application.routes.draw do
 
   resources :likes, only: %i[create destroy]
   resources :relationships, only: %i[create destroy]
-
-  post 'posts/search' => "searches#index", as: :searches
 end
