@@ -28,4 +28,8 @@ class Post < ApplicationRecord
 
   validates :images, presence: true
   validates :description, presence: true, length: { maximum: 1000 }
+
+  scope :body_contain, ->(word) { where('body LIKE ?', "%#{word}%") }
+  scope :comment_body_contain, ->(word) { joins(:comments).where('comments.body LIKE ?', "%#{word}%") }
+  scope :username_contain, ->(word) { joins(:user).where('username LIKE ?', "%#{word}%") }
 end
