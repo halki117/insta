@@ -56,7 +56,9 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = @search_form.search.includes(:user).page(:params[:page])
+    binding.pry
+    # @posts = @search_form.search.includes(:user).page(:params[:page])
+    @posts = @search_form.search
   end
 
   private

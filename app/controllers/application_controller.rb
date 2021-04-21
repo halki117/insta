@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def search_post_params
-    params.fetch(:q, {}).permit(:body, :content_body, :username) # fetch(:q, {}) <- views/posts/_search のフォームから送られてきたパラメーター(:q というキーをしている)。 {} はデフォルト値
+    params.fetch(:q, {}).permit(:body, :comment_body, :username) # fetch(:q, {}) <- views/posts/_search のフォームから送られてきたパラメーター(:q というキーをしている)。 {} はデフォルト値
   end
 end

@@ -1,6 +1,6 @@
 .form-inline.my-2.my-lg-0.mr-auto
-  = form_with model: search_form, scope: :q, method: :get, local: true do |f|
-    = f.text_field :search_desctiption, placeholder: "本文", class: "form-control mr-sm-2", id: "q_body"
-    = f.text_field :search_comment, placeholder: "コメント", class: "form-control mr-sm-2", id: "q_body"
-    = f.text_field :search_user, placeholder: "ユーザー名", class: "form-control mr-sm-2", id: "q_body"
+  = form_with model: search_form, url: search_posts_path, scope: :q, method: :get, local: true do |f|
+    = f.search_field :body, placeholder: "本文", class: "form-control mr-sm-2", id: "q_body"
+    = f.search_field :comment_body, placeholder: "コメント", class: "form-control mr-sm-2", id: "q_body"
+    = f.search_field :username, placeholder: "ユーザー名", class: "form-control mr-sm-2", id: "q_body"
     = f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0"
