@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     # 1ページ15件表示にしたいので、設定ファイル(config/initializers/kaminari_config.rb)内で設定
 
     @users = User.recent(5)
+
   end
 
   def new
@@ -56,9 +57,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    binding.pry
-    # @posts = @search_form.search.includes(:user).page(:params[:page])
-    @posts = @search_form.search
+    @posts = @search_form.search.includes(:user).page(params[:page])
   end
 
   private
