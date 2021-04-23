@@ -1,5 +1,8 @@
-h1 検索結果
 
-- @posts.each do |post|
-  h1 = post.user.name
-  p = post.description
+.container
+  .row
+    .col-md-8.col-12.offset-md-2
+      h2.text-center
+        | 検索結果: #{@posts.total_count}件
+      = render @posts
+      = paginate @posts
