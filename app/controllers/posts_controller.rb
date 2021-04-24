@@ -58,6 +58,7 @@ class PostsController < ApplicationController
 
   def search
     @posts = @search_form.search.includes(:user).page(params[:page])
+    # @search_form <- application.controller内で定義してある.    search <- SearchPostsFormクラスで定義しているメソッド
   end
 
   private

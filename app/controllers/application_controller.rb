@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search_posts_form
-    @search_form = SearchPostsForm.new(search_post_params) 
+    @search_form = SearchPostsForm.new(search_post_params)
+    # SearchPostsForm  app/forms/search_posts_form.rb にて定義しているクラス
   end
 
   def search_post_params
