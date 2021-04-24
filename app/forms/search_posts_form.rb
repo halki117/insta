@@ -2,11 +2,12 @@ class SearchPostsForm
   include ActiveModel::Model
   include ActiveModel::Attributes
   # ActiveModel::Model でデータベースに依存しないモデルを生成
-  # ActiveModel::Attributes で属性を定義する
+  # ActiveModel::Attributes で属性を定義できる
 
   attribute :body, :string
   attribute :comment_body, :string
   attribute :username, :string
+  # 検索フォームの 本文、コメント、ユーザー名 それぞれから情報を受け取る
 
   def search
     scope = Post.distinct

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_search_posts_form
+  before_action :set_search_posts_form   # 全コントローラ内で@search_formが定義される
   add_flash_types :succes, :info, :warning, :danger  # flashメッセージは notice か alert の２種類しか使えないので他のキーの使用を許可しておく必要がある
 
   before_action :require_login
@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def search_post_params
-    params.fetch(:q, {}).permit(:body, :comment_body, :username) # fetch(:q, {}) <- views/posts/_search のフォームから送られてきたパラメーター(:q というキーをしている)。 {} はデフォルト値
+    params.fetch(:q, {}).permit(:body, :comment_body, :username) # fetch(:q, {}) <- views/posts/_search のフォームから送られてきたパラメーター(:q というキーをしている)。 {} はデフォルト値)
   end
 end
