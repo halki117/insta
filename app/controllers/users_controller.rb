@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user =  User.find(params[:id])
-    @posts = Post.where(user_id: params[:id])
+    @posts = Post.where(user_id: params[:id]) # 1人のユーザーが保有する投稿のレコードを全て呼び出す
   end
 
   private
