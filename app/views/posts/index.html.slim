@@ -3,10 +3,12 @@
   .col-md-8.col-12
     - if @posts
       = render @posts
+    / 部分テンプレート名が単数形なので上の様に省略して書ける、テンプレート内では post という変数が使える
     - else
       .text-center.font-weight-bold
         | 投稿がありません
     = paginate @posts
+
 
   .col-md-4.col-12
     - if logged_in?
