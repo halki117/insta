@@ -3,11 +3,20 @@
   .col-md-8.col-12
     - if @posts
       = render @posts
+    / 部分テンプレート名が単数形なので上の様に省略して書ける、テンプレート内では post という変数が使える
     - else
       .text-center.font-weight-bold
         | 投稿がありません
     = paginate @posts
+
+
   .col-md-4.col-12
+    - if logged_in?
+      .profile-box.mb-3
+        = link_to user_path(current_user) do
+          = image_tag avatar_url(current_user), size: '50x50', class: 'rounded-circle mr-1'
+          = current_user.name
+  
     .user-box 
       .card 
         .card-header
