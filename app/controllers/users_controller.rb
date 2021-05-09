@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     @posts = @user.posts # 1人のユーザーが保有する投稿のレコードを全て呼び出す
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email ,:password ,:password_confirmation)

@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   
-  resources :users
-  
+  resources :users, only: %i[index new create show]
+  get '/mypage/account/edit' => "users#edit"
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"

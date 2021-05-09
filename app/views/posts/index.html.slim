@@ -13,7 +13,7 @@
   .col-md-4.col-12
     - if logged_in?
       .profile-box.mb-3
-        = link_to user_path(current_user) do
+        = link_to mypage_account_edit_path(id: current_user.id) do
           = image_tag avatar_url(current_user), size: '50x50', class: 'rounded-circle mr-1'
           = current_user.name
   
