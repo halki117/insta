@@ -26,13 +26,12 @@
                     = link_to "支払い履歴", "#"
             .col-md-9
               .mypage_content
-                = form_with model: @user, rocal: true do |f|
+                = form_with url: mypage_account_edit_path(user_id: current_user.id), rocal: true do |f|
                   .from-group
                     = f.label :アバター
                     = f.file_field :profile_photo, class: 'form-control' 
                     = image_tag avatar_url(@user), size: '100x100', class: 'rounded-circle mr-1'
                   .from-group.mt-2
                     = f.label :ユーザー名
-                    = f.text_field :name,value: "#{@user.name}", class: 'form-control'
-                  .mt-2
-                    = f.submit '更新する', class: 'btn btn-primary btn-raised'
+                    = f.text_field :name, value: "#{@user.name}", class: 'form-control'
+                  = f.submit '更新する', class: 'btn btn-primary btn-raised'

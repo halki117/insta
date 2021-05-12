@@ -29,8 +29,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    puts "hoge"
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email ,:password ,:password_confirmation)
+  end
+
+  def user_profile_params
+    params.require(:user).permit(:profile_photo, :name)
   end
 end

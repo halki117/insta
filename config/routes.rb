@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
   resources :users, only: %i[index new create show]
   get '/mypage/account/edit' => "users#edit"
+  post '/mypage/account/edit' => "users#update"
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
