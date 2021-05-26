@@ -1,21 +1,8 @@
 
 .row
   .col-md-8.col-12
-    .card.mb-5.post
-      .card-header
-        .d-flex.aline-item-center
-          .user_img
-            = image_tag avatar_url(@user) , size: "40x40"
-            | user_name
-      .image 
-        = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbugVqJjEUb1zo4LHAIeOwlj4y1GX7WJQAHw&usqp=CAU", size: "400x400"
-      .card-body
-        .card-text.card-bottom
-          .card-content
-            | contents
-          .card-icon
-            = icon 'far', 'edit'
-  
+    = render @posts
+    = paginate @posts
   .col-md-4.col-12
     .user-box 
       .card 
@@ -34,3 +21,4 @@
           hr
         .card-footer
           = link_to "すべて見る", "/"
+

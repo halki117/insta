@@ -20,3 +20,19 @@
   display: flex;
   justify-content: space-between;
 }
+
+.post-detail.card{
+  max-width: 700px;
+  flex-direction: row;
+  .image-box{
+    width: 400px;
+  }
+  .image-info-box{
+    width: 300px;
+  }
+}
+
+.ml-auto.icons{
+  padding-top: 10px;
+}
+

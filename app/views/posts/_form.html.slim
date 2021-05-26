@@ -1,0 +1,12 @@
+= form_with model: post, local: true do |f|
+  = render 'shared/error_messages', object: post
+  .form-group
+    = f.label :image
+    = f.file_field :images, multiple: true, class: 'form-control'
+    / multiple: trueとすることで複数の画像を選択できる
+    - post.images.each do |image|
+      = image_tag image.url, size: '100x100', class: 'image-thumbnail'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  = f.submit '登録する', class: 'btn btn-primary btn-raised'
