@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
+  def index
+    @users = User.all.page(params[:page]).order(created_at: :desc) 
+  end
+
   def new
     @user = User.new
   end
@@ -14,6 +18,11 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザーの作成に失敗しました'
       render :new
     end 
+  end
+
+  def show
+    @user =  User.find(params[:id])
+    @posts = Post.where(user_id: params[:id]) # 1人のユーザーが保有する投稿のレコードを全て呼び出す
   end
 
   private

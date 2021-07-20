@@ -1,0 +1,33 @@
+.card.mb-5.post
+  .card-header
+    .d-flex.aline-item-center
+      = link_to user_path(post.user)
+        .user_img
+          = image_tag avatar_url(post.user) , size: "40x40", class: 'rounded-circle mr-1'
+          = post.user.name
+      - if current_user&.own?(post)
+        .ml-auto.icons
+          = link_to post_path(post), method: :delete, class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
+            = icon 'far', 'trash-alt', class: 'fa-lg'
+          = link_to edit_post_path(post) do
+            = icon 'far', 'edit', class: 'fa-lg'
+      - if current_user && !current_user&.own?(post)
+        .ml-auto.my-auto
+          div id="like_area-#{post.id}"
+            - if current_user.like?(post)
+              = render 'unlike', post: post
+            - else
+              = render 'like', post: post
+
+  = link_to post_path(post) do
+    .swiper-container
+      .swiper-wrapper
+        - post.images.each do |image|
+          .swiper-slide
+            = image_tag image.url , size: "400x400"
+      .swiper-pagination
+  
+  .card-body
+    .card-text.card-bottom
+      .card-content
+        = post.description

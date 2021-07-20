@@ -1,0 +1,4 @@
+.comments-box
+  = render comments
+/ 2行目 comments はローカル変数。views/posts/show内で = render 'comments/comments', comments: @comments としている
+/ また render comments とすることで。comments内のデータの数だけ _comment.html.slim のテンプレートを繰り返し生成する。
